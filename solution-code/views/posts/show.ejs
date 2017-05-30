@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="single-post col-sm-6">
+      <img src="<%= post.picPath %>">
+      <% if (post.content) { %>
+        <p><%= post.content %></p>
+        <hr>
+      <% } %>
+      <span>
+        <%= post.comments.length === 1 ?
+          `${post.comments.length} note` : `${post.comments.length} notes`
+        %>
+      </span>
+      <div class="row">
+        <% post.comments.forEach((comment) => { %>
+          <div class="col-sm-12 post-comment">
+          <%= comment.content %>
+          <% if (comment.picPath) { %>
+            <img src="<%= comment.picPath %>">
+          <% } %>
+          </div>
+        <%  }) %>
+      </div>
+    </div>
+  </div>
+</div>

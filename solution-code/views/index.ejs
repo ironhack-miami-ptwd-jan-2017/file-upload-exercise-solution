@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <h1 class="index-welcome">Welcome to IronTumblr</h1>
+  </div>
+  <div class="row">
+    <% posts.forEach((post) => { %>
+      <div class="single-post col-sm-6">
+        <img src="<%= post.picPath %>">
+        <% if (post.content) { %>
+          <p><%= post.content %></p>
+          <hr>
+        <% } %>
+        <a href="/posts/<%= post._id %>">
+          <span>
+            <%= post.comments.length === 1 ?
+              `${post.comments.length} note` : `${post.comments.length} notes`
+            %>
+          </span>
+        </a>
+        <a class="pull-right" href="/posts/<%= post._id %>/comments/new">
+          <span>Comment</span>
+        </a>
+      </div>
+    <%  }) %>
+  </div>
+</div>
